@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo.xsd">
+
+    <util:properties id="COMMON" location="classpath:/conf/app.properties"/>
+    <context:property-placeholder location="classpath:/conf/app.properties" ignore-unresolvable="true"/>
+
+    <context:component-scan base-package="com.toquery.oauth2.model" use-default-filters="false">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <import resource="spring-db.xml"/>
+    <import resource="spring-mybatis.xml"/>
+    <import resource="spring-shiro.xml"/>
+    <import resource="spring-cache.xml"/>
+
+
+    <!-- 开发环境 -->
+    <beans profile="develop">
+        <!-- 加载数据库属性配置文件 -->
+        <util:properties id="APP" location="classpath:/conf/app.develop.properties"/>
+        <context:property-placeholder location="classpath:/conf/app.develop.properties" ignore-unresolvable="true"/>
+    </beans>
+
+
+</beans>
