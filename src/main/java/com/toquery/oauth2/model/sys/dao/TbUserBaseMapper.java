@@ -1,5 +1,6 @@
 package com.toquery.oauth2.model.sys.dao;
 
+
 import com.toquery.oauth2.core.repository.MyBatisRepository;
 import com.toquery.oauth2.model.sys.entity.po.TbUserBase;
 

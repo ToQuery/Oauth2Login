@@ -49,6 +49,8 @@
         <property name="basePackage" value="com.toquery.oauth2.model.sys.dao"/>
         <property name="annotationClass" value="com.toquery.oauth2.core.repository.MyBatisRepository"/>
         <!--
+        <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
+
         <property name="sqlSessionTemplateBeanName" value="sqlSession" />
          -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>

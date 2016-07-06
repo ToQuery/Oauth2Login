@@ -1,6 +1,7 @@
 package com.toquery.oauth2.core.repository;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.lang.annotation.*;
 
@@ -10,6 +11,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 @Documented
-@Component
-public @interface MyBatisRepository {
+@Repository
+public @interface MyBatisRepository  {
 }
