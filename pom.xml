@@ -15,20 +15,33 @@
         <!-- shiro 框架版本 -->
         <shrio.version>1.2.3</shrio.version>
 
+        <mysql.version>5.1.38</mysql.version>
+
         <!-- mybatis 框架版本-->
-        <mybatis.version>3.2.8</mybatis.version>
+        <mybatis.version>3.4.1</mybatis.version>
         <mybatis.spring.version>1.3.0</mybatis.spring.version>
         <mybatis.generator.version>1.3.3</mybatis.generator.version>
 
+        <!-- pagehelper 分页组件 -->
+        <pagehelper.version>4.1.4</pagehelper.version>
+
         <oauth2.version>1.0.2</oauth2.version>
+
+        <freemarker.version>2.3.23</freemarker.version>
 
         <!-- log4j 日志版本 -->
         <log4j.version>2.4</log4j.version>
 
+        <jackson.version>2.6.0</jackson.version>
+
+        <fileupload.version>1.3.1</fileupload.version>
+
         <druid.version>1.0.15</druid.version>
 
         <!-- junit 测试 -->
-        <junit.version>4.2.0</junit.version>
+        <junit.version>4.11</junit.version>
+
+        <mockito.version>1.9.5</mockito.version>
     </properties>
 
     <dependencies>
@@ -51,6 +64,16 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
@@ -96,6 +119,13 @@
             <version>${shrio.version}</version>
         </dependency>
 
+        <!-- mysql 连接类 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
+
         <!-- mybatis 框架 -->
         <dependency>
             <groupId>org.mybatis</groupId>
@@ -108,11 +138,23 @@
             <version>${mybatis.spring.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>${pagehelper.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.apache.oltu.oauth2</groupId>
             <artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>
             <version>${oauth2.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
         </dependency>
 
         <!-- log4j 2 支持包 -->
@@ -144,10 +186,47 @@
             <version>${druid.version}</version>
         </dependency>
 
+        <!--jackson 自动解析-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${fileupload.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.2.0</version>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -159,7 +238,7 @@
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
                 <version>1.3.0</version>
                 <configuration>
-                    <configurationFile>${basedir}/src/main/resources/conf/generate/generatorConfig.xml
+                    <configurationFile>${basedir}/src/main/resources/mybatis/generate/generatorConfig.xml
                     </configurationFile>
                     <verbose>true</verbose>
                     <overwrite>true</overwrite>

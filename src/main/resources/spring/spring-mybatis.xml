@@ -46,7 +46,7 @@
 
     <!-- 扫描basePackage下所有以@MyBatisRepository标识的 接口-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.pansoft.everweb.repository.mybatis"/>
+        <property name="basePackage" value="com.toquery.oauth2.model.sys.dao"/>
         <property name="annotationClass" value="com.toquery.oauth2.core.repository.MyBatisRepository"/>
         <!--
         <property name="sqlSessionTemplateBeanName" value="sqlSession" />
