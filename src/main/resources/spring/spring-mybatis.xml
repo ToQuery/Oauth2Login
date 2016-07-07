@@ -20,8 +20,9 @@
             <tx:method name="load*" read-only="true"/>
             <tx:method name="save*" rollback-for="java.sql.SQLException,SQLException"/>
             <tx:method name="insert*" rollback-for="java.sql.SQLException,SQLException"/>
-            <tx:method name="*"/>
             <!--
+            <tx:method name="*"/>
+
             <tx:method name="*"         no-rollback-for="Exception" />
             <tx:method name="*"         rollback-for="Exception" />
              -->

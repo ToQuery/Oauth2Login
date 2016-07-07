@@ -23,10 +23,8 @@
         where login_name = #{loginName}
     </select>
 
-    <select id="findAll">
-        select
-        <include refid="Base_Column_List"/>
-        from tb_user_base
+    <select id="findAll" resultMap="BaseResultMap">
+        select * from tb_user_base
     </select>
 
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">

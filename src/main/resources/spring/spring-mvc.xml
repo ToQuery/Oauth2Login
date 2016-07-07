@@ -11,6 +11,7 @@
         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
     <context:component-scan use-default-filters="false" base-package="com.toquery.oauth2.model.sys.web.controller,com.toquery.oauth2.model.auth.web.controller">
+        <context:include-filter type="annotation" expression="com.toquery.oauth2.core.repository.MyBatisRepository"/>
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
@@ -64,6 +65,7 @@
 
     <!-- 对静态资源文件的访问-->
     <mvc:resources mapping="/resource/**" location="/resource/"/>
+    <mvc:resources mapping="/static/**" location="/static/"/>
     <mvc:resources mapping="/images/**" location="/images/"/>
     <mvc:resources mapping="/style/**" location="/style/"/>
     <mvc:resources mapping="/script/**" location="/script/"/>

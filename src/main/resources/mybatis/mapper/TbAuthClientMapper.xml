@@ -13,7 +13,7 @@
     id, client_name, client_id, client_secret, create_user, create_time
   </sql>
 
-    <select id="getAll" resultMap="com.toquery.oauth2.model.sys.entity.po.TbAuthClient">
+    <select id="getAll" parameterType="com.toquery.oauth2.model.sys.entity.po.TbAuthClient" resultMap="BaseResultMap" >
         select * from tb_auth_client
     </select>
 

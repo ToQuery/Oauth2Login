@@ -51,7 +51,7 @@ public class AuthorizeController {
             if (!oAuthService.checkClientId(oauthRequest.getClientId())) {
                 OAuthResponse response = OAuthASResponse.errorResponse(HttpServletResponse.SC_BAD_REQUEST)
                         .setError(OAuthError.TokenResponse.INVALID_CLIENT)
-                        .setErrorDescription(Constants.INVALID_CLIENT_DESCRIPTION)
+                        .setErrorDescription("客户端ID不存在")
                         .buildJSONMessage();
                 return new ResponseEntity(response.getBody(), HttpStatus.valueOf(response.getResponseStatus()));
             }
@@ -97,7 +97,7 @@ public class AuthorizeController {
             String redirectUri = e.getRedirectUri();
             if (OAuthUtils.isEmpty(redirectUri)) {
                 //告诉客户端没有传入redirectUri直接报错
-                return new ResponseEntity("OAuth callback.ftl url needs to be provided by client!!!", HttpStatus.NOT_FOUND);
+                return new ResponseEntity("OAuth 回调的 URL 地址需要由客户提供 !!!", HttpStatus.NOT_FOUND);
             }
 
             //返回错误消息（如?error=）

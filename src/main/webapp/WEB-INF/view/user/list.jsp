@@ -23,7 +23,7 @@
     <tbody>
         <c:forEach items="${userList}" var="user">
             <tr>
-                <td>${user.username}</td>
+                <td>${user.loginName}</td>
                 <td>
                     <a href="${pageContext.request.contextPath}/user/${user.id}/update">修改</a>
                     <a href="${pageContext.request.contextPath}/user/${user.id}/delete">删除</a>
