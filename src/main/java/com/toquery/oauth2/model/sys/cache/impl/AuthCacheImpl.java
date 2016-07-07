@@ -53,16 +53,33 @@ public class AuthCacheImpl implements IAuthCache {
         return cache.get(accessToken) != null;
     }
 
+    /**
+     * 检测指定clientId的授权应用对象是否存在
+     *
+     * @param clientId
+     * @return true 存在 false 不存在
+     */
     @Override
     public boolean checkClientId(String clientId) {
         return authClientService.getByClientId(clientId) != null;
     }
 
+    /**
+     * 检测指定 clientSecret 的授权应用对象是否存在
+     *
+     * @param clientSecret
+     * @return true 存在 false 不存在
+     */
     @Override
     public boolean checkClientSecret(String clientSecret) {
         return authClientService.getByClientSecret(clientSecret) != null;
     }
 
+    /**
+     * auth code accesstoken 过期时间
+     *
+     * @return
+     */
     @Override
     public long getExpireIn() {
         return 3600L;

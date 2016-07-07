@@ -1,5 +1,6 @@
 package com.toquery.test.controller;
 
+import com.toquery.test.BaseTest;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
@@ -11,11 +12,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
  * Created by ToQuery on 2016-07-06.
  */
 
-@ContextConfiguration(locations = "classpath:/spring/spring-context.xml")
-@WebAppConfiguration
-//@Profile("develop")
-@ActiveProfiles("develop")
-@RunWith(value = SpringJUnit4ClassRunner.class)
-public class BaseTestControllerTest extends AbstractTransactionalJUnit4SpringContextTests {
+
+public class BaseTestControllerTest extends BaseTest {
 
 }

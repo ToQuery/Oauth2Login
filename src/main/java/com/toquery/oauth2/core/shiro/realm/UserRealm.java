@@ -35,7 +35,6 @@ public class UserRealm extends AuthorizingRealm {
         if (userBase == null) {
             throw new UnknownAccountException();//没找到帐号
         }
-
         //交给AuthenticatingRealm使用CredentialsMatcher进行密码匹配，如果觉得人家的不好可以自定义实现
         SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(
                 userBase.getLoginName(), //用户名
