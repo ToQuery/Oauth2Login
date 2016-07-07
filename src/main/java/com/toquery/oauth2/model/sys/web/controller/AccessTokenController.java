@@ -1,4 +1,4 @@
-package com.toquery.oauth2.model.auth.web.controller;
+package com.toquery.oauth2.model.sys.web.controller;
 
 import com.toquery.oauth2.model.auth.Constants;
 import com.toquery.oauth2.model.sys.cache.IAuthCache;
