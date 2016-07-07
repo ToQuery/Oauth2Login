@@ -14,6 +14,7 @@
         <!-- 对选定的方法配置详细的事务属性 -->
         <tx:attributes>
             <tx:method name="get*" read-only="true"/>
+            <tx:method name="check*" read-only="true"/>
             <tx:method name="query*" read-only="true"/>
             <tx:method name="find*" read-only="true"/>
             <tx:method name="load*" read-only="true"/>

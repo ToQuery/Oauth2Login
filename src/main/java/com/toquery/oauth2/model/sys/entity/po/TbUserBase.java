@@ -1,7 +1,5 @@
 package com.toquery.oauth2.model.sys.entity.po;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import java.util.Date;
 
 public class TbUserBase {
@@ -15,9 +13,10 @@ public class TbUserBase {
 
     private String pwd;
 
+    private String salt;
+
     private String createUser;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date createTime;
 
     public Integer getId() {
@@ -58,6 +57,14 @@ public class TbUserBase {
 
     public void setPwd(String pwd) {
         this.pwd = pwd == null ? null : pwd.trim();
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt == null ? null : salt.trim();
     }
 
     public String getCreateUser() {
