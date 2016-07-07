@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS `tb_user_base`;
 CREATE TABLE tb_auth_client
 (
   id INT(11) PRIMARY KEY NOT NULL COMMENT '主键' AUTO_INCREMENT,
@@ -7,6 +8,8 @@ CREATE TABLE tb_auth_client
   create_user VARCHAR(60) COMMENT '创建人',
   create_time DATETIME COMMENT '创建时间'
 );
+
+DROP TABLE IF EXISTS `tb_user_base`;
 CREATE TABLE tb_user_base
 (
   id INT(11) PRIMARY KEY NOT NULL COMMENT '主键' AUTO_INCREMENT,

@@ -13,8 +13,11 @@
     <!-- 凭证匹配器 -->
     <bean id="credentialsMatcher" class="com.toquery.oauth2.core.shiro.credentials.RetryLimitHashedCredentialsMatcher">
         <constructor-arg ref="cacheManager"/>
+        <!-- 指定hash算法为MD5 -->
         <property name="hashAlgorithmName" value="md5"/>
+        <!-- 指定散列次数为2次 -->
         <property name="hashIterations" value="2"/>
+        <!-- 指定Hash散列值使用Hex加密存 -->
         <property name="storedCredentialsHexEncoded" value="true"/>
     </bean>
 
