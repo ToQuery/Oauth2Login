@@ -10,6 +10,9 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 
+    <bean  class="com.toquery.oauth2.core.config.SwaggerConfig" />
+    <!--<bean  class="com.mangofactory.swagger.configuration.SpringSwaggerConfig" />-->
+
     <context:component-scan use-default-filters="false" base-package="com.toquery.oauth2.model.sys.web.controller,com.toquery.oauth2.model.auth.web.controller">
         <context:include-filter type="annotation" expression="com.toquery.oauth2.core.repository.MyBatisRepository"/>
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
@@ -48,7 +51,7 @@
     <!-- 配置freeMarker的模板路径 -->
     <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer" >
         <property name="freemarkerSettings" ref="freemarkerConfiguration"/>
-        <property name="templateLoaderPath" value="/WEB-INF/view/"/>
+        <property name="templateLoaderPath" value="/WEB-INF/freemarker/"/>
         <property name="defaultEncoding" value="utf-8"/>
     </bean>
 
@@ -57,6 +60,7 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
         <property name="suffix" value=".ftl"/>
         <property name="contentType" value="text/html;charset=utf-8"/>
+        <!-- 要在ftl页面中使用contextPath ${requestContext.}-->
         <property name="requestContextAttribute" value="requestContext"/>
         <property name="exposeRequestAttributes" value="true"/>
         <property name="exposeSpringMacroHelpers" value="true"/>
@@ -69,10 +73,15 @@
     <mvc:resources mapping="/images/**" location="/images/"/>
     <mvc:resources mapping="/style/**" location="/style/"/>
     <mvc:resources mapping="/script/**" location="/script/"/>
+    <!-- 所有swagger目录的访问，直接访问location指定的目录 -->
+    <mvc:resources mapping="/swagger/**" location="/WEB-INF/swagger/"/>
 
 
     <!-- 上传文件拦截，设置最大上传文件大小   10M=10*1024*1024(B)=10485760 bytes -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="10485760"/>
     </bean>
+
+
+
 </beans>

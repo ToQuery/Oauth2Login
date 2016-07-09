@@ -43,11 +43,17 @@
         <!-- 自动解析json -->
         <jackson.version>2.6.0</jackson.version>
 
+        <guava.version>19.0</guava.version>
+
         <!-- common file 组件 -->
         <fileupload.version>1.3.1</fileupload.version>
 
         <!-- 数据库连接池 -->
         <druid.version>1.0.15</druid.version>
+
+        <!-- swagger 组件使用 -->
+        <swagger.version>1.0.2</swagger.version>
+        <swagger.annot.version>1.3.11</swagger.annot.version>
 
         <!-- junit 测试 -->
         <junit.version>4.11</junit.version>
@@ -58,11 +64,9 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus</artifactId>
-            <version>1.3.0</version>
-        </dependency>
+
+
+
         <!-- spring 框架 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -239,11 +243,34 @@
             <version>${jackson.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
             <version>${fileupload.version}</version>
+        </dependency>
+
+
+        <!-- swagger API 组件 -->
+        <dependency>
+            <groupId>com.mangofactory</groupId>
+            <artifactId>swagger-springmvc</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mangofactory</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.wordnik</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${swagger.annot.version}</version>
         </dependency>
 
         <dependency>
