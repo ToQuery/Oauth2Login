@@ -3,6 +3,7 @@ package com.toquery.oauth2.model.sys.web.controller;
 import com.toquery.oauth2.model.auth.Constants;
 import com.toquery.oauth2.model.sys.cache.IAuthCache;
 import com.toquery.oauth2.model.sys.service.IUserBaseService;
+import com.wordnik.swagger.annotations.Api;
 import org.apache.oltu.oauth2.as.issuer.MD5Generator;
 import org.apache.oltu.oauth2.as.issuer.OAuthIssuer;
 import org.apache.oltu.oauth2.as.issuer.OAuthIssuerImpl;
@@ -17,6 +18,7 @@ import org.apache.oltu.oauth2.common.message.types.GrantType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +28,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.net.URISyntaxException;
 
 @RestController
+@RequestMapping("/")
+@Api(value = "/", produces = MediaType.APPLICATION_JSON_VALUE, description = "检测HTTP请求以及参数是否正确，返回授权令牌")
 public class AccessTokenController {
 
     @Autowired
@@ -34,7 +38,7 @@ public class AccessTokenController {
     @Autowired
     private IUserBaseService userService;
 
-    @RequestMapping("/accessToken")
+    @RequestMapping("accessToken")
     public HttpEntity token(HttpServletRequest request) throws URISyntaxException, OAuthSystemException {
 
         try {

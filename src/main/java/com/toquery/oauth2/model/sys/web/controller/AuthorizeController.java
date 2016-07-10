@@ -3,6 +3,9 @@ package com.toquery.oauth2.model.sys.web.controller;
 import com.toquery.oauth2.model.auth.Constants;
 import com.toquery.oauth2.model.sys.cache.IAuthCache;
 import com.toquery.oauth2.model.sys.service.IAuthClientService;
+import com.wordnik.swagger.annotations.Api;
+import com.wordnik.swagger.annotations.ApiOperation;
+import com.wordnik.swagger.annotations.ApiParam;
 import org.apache.oltu.oauth2.as.issuer.MD5Generator;
 import org.apache.oltu.oauth2.as.issuer.OAuthIssuerImpl;
 import org.apache.oltu.oauth2.as.request.OAuthAuthzRequest;
@@ -33,6 +36,8 @@ import java.net.URISyntaxException;
 
 
 @Controller
+@RequestMapping("/")
+@Api(value = "/", description = "检测HTTP请求以及参数是否正确")
 public class AuthorizeController {
 
     @Autowired
@@ -41,12 +46,12 @@ public class AuthorizeController {
     @Autowired
     private IAuthCache authCache;
 
-    @RequestMapping("/authorize")
+    @RequestMapping("authorize")
+    @ApiOperation(value = "authorize", nickname = "客户端许可检测", httpMethod = "GET,POST", notes = "客户端许可检测")
     public Object authorize(Model model, HttpServletRequest request) throws URISyntaxException, OAuthSystemException {
         try {
             //构建OAuth 授权请求
             OAuthAuthzRequest oauthRequest = new OAuthAuthzRequest(request);
-
             //检查传入的客户端id是否正确
             if (!oAuthService.checkClientId(oauthRequest.getClientId())) {
                 OAuthResponse response = OAuthASResponse.errorResponse(HttpServletResponse.SC_BAD_REQUEST)
